@@ -14,9 +14,9 @@ class MyScreenView(MDScreen, Observer):
 
     """
 
-    # <Model.myscreen.MyScreenModel object>
+    # <Controller.myscreen_controller.MyScreenController object>.
     controller = ObjectProperty()
-    # <Controller.myscreen_controller.MyScreenController>
+    # <Model.myscreen.MyScreenModel object>.
     model = ObjectProperty()
 
     def __init__(self, **kw):
