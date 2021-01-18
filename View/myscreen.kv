@@ -1,0 +1,52 @@
+<MyField@MDTextFieldRect>
+    size_hint: None, None
+    size: "100dp", "32dp"
+    input_filter: "int"
+    pos_hint: {"center_y": .5}
+
+
+<MyLabel@MDLabel>
+    pos_hint: {"center_y": .5}
+
+
+<MyScreenView>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        adaptive_size: True
+        spacing: "12dp"
+        padding: "12dp"
+        radius: [10, ]
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: app.theme_cls.disabled_hint_text_color
+
+        MDLabel:
+            text: "Calculate two numbers:"
+            font_style: "H6"
+            pos_hint: {"center_x": .5}
+            adaptive_size: True
+
+        MDBoxLayout:
+            adaptive_size: True
+            spacing: "12dp"
+
+            MyField:
+                id: number_1
+                # Bind the edit completion event to the controller method.
+                on_focus: root.set_c(self.focus, int(self.text or 0))
+
+            MyLabel:
+                text: "+"
+                adaptive_size: True
+
+            MyField:
+                id: number_2
+                # Bind the edit completion event to the controller method.
+                on_focus: root.set_d(self.focus, int(self.text or 0))
+
+            MyLabel:
+                text: "="
+                adaptive_size: True
+
+            MyField:
+                id: result
